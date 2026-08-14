@@ -9,7 +9,7 @@ class ApiService {
   static Future<bool> checkHealth() async {
     try {
       final url = Uri.parse('$baseUrl/health');
-      final response = await http.get(url).timeout(const Duration(seconds: 10));
+      final response = await http.get(url).timeout(const Duration(seconds: 15));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         return data['ok'] == true;
